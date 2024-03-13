@@ -1,0 +1,1754 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmShipBarcode..Create
+Gui.frmShipBarcode..Caption("Shipping Barcode Verification")
+Gui.frmShipBarcode..Size(15345,10905)
+Gui.frmShipBarcode..MinX(0)
+Gui.frmShipBarcode..MinY(0)
+Gui.frmShipBarcode..Position(0,0)
+Gui.frmShipBarcode..BackColor(-2147483633)
+Gui.frmShipBarcode..MaxButton(False)
+Gui.frmShipBarcode..MousePointer(0)
+Gui.frmShipBarcode..Event(UnLoad,frmShipBarcode_UnLoad)
+Gui.frmShipBarcode.lbl1.Create(Label,"Order No",True,1935,255,0,255,660,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl2.Create(Label,"Customer No",True,1380,255,0,2370,660,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl3.Create(Label,"Customer Name",True,1935,255,0,3960,660,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl4.Create(Label,"Customer PO",True,1455,255,0,6870,660,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl5.Create(Label,"Carrier",True,1935,255,0,8520,660,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl6.Create(Label,"Ship Via",True,1935,255,0,10950,660,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.txtorderno.Create(TextBox,"",True,1590,300,0,300,840,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtorderno.Event(KeyPressEnter,txtorderno_KeyPressEnter)
+Gui.frmShipBarcode.txtcustno.Create(TextBox,"",True,1440,300,0,2370,870,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtcustno.Locked(True)
+Gui.frmShipBarcode.txtcustname.Create(TextBox,"",True,2850,300,0,3930,870,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtcustname.Locked(True)
+Gui.frmShipBarcode.txtcustpo.Create(TextBox,"",True,1530,300,0,6870,870,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtcustpo.Locked(True)
+Gui.frmShipBarcode.txtcarrier.Create(TextBox,"",True,1875,300,0,8520,870,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtcarrier.Locked(True)
+Gui.frmShipBarcode.txtshipvia.Create(TextBox,"",True,1530,300,0,10950,870,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtshipvia.Locked(True)
+Gui.frmShipBarcode.txtscanpart.Create(TextBox,"",True,3525,300,0,300,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtscanpart.Event(KeyPressEnter,txtsanpart_KeyPressEnter)
+Gui.frmShipBarcode.txtscanserialno.Create(TextBox,"",False,2835,300,0,3960,1500,False,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtscanserialno.Event(KeyPressEnter,txtscanserialno_KeyPressEnter)
+Gui.frmShipBarcode.txtscanserialno.Locked(True)
+Gui.frmShipBarcode.cmdshipviabrowse.Create(Button)
+Gui.frmShipBarcode.cmdshipviabrowse.Size(360,375)
+Gui.frmShipBarcode.cmdshipviabrowse.Position(12525,840)
+Gui.frmShipBarcode.cmdshipviabrowse.Caption("^")
+Gui.frmShipBarcode.cmdshipviabrowse.Event(Click,cmdshipviabrowse_Click)
+Gui.frmShipBarcode.cmdclear.Create(Button)
+Gui.frmShipBarcode.cmdclear.Size(855,375)
+Gui.frmShipBarcode.cmdclear.Position(6870,1470)
+Gui.frmShipBarcode.cmdclear.Caption("Clear")
+Gui.frmShipBarcode.cmdclear.Event(Click,cmdclear_Click)
+Gui.frmShipBarcode.GridShipping.Create(GsGridControl)
+Gui.frmShipBarcode.GridShipping.Size(14700,7635)
+Gui.frmShipBarcode.GridShipping.Position(255,2070)
+Gui.frmShipBarcode.cmdProcess.Create(Button)
+Gui.frmShipBarcode.cmdProcess.Size(1335,375)
+Gui.frmShipBarcode.cmdProcess.Position(300,9825)
+Gui.frmShipBarcode.cmdProcess.Caption("Process")
+Gui.frmShipBarcode.cmdProcess.Event(Click,cmdProcess_Click)
+Gui.frmShipBarcode.cmdviewserial.Create(Button)
+Gui.frmShipBarcode.cmdviewserial.Size(1335,375)
+Gui.frmShipBarcode.cmdviewserial.Position(1830,9840)
+Gui.frmShipBarcode.cmdviewserial.Caption("View Stock")
+Gui.frmShipBarcode.cmdviewserial.Event(Click,cmdviewserial_Click)
+Gui.frmShipBarcode.cmdordernobrowse.Create(Button)
+Gui.frmShipBarcode.cmdordernobrowse.Size(360,375)
+Gui.frmShipBarcode.cmdordernobrowse.Position(1935,840)
+Gui.frmShipBarcode.cmdordernobrowse.Caption("^")
+Gui.frmShipBarcode.cmdordernobrowse.Event(Click,cmdordernobrowse_Click)
+Gui.frmShipBarcode.cmdcarrierbrowse.Create(Button)
+Gui.frmShipBarcode.cmdcarrierbrowse.Size(360,375)
+Gui.frmShipBarcode.cmdcarrierbrowse.Position(10455,840)
+Gui.frmShipBarcode.cmdcarrierbrowse.Caption("^")
+Gui.frmShipBarcode.cmdcarrierbrowse.Event(Click,cmdcarrierbrowse_Click)
+Gui.frmShipBarcode.lbl7.Create(Label,"Scan Parts",True,1935,255,0,255,1260,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl8.Create(Label,"Scan Serial no",False,1935,255,0,3915,1290,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.txt1.Create(TextBox,"",True,375,300,0,3930,9855,True,0,"Arial",8,9157775,1)
+Gui.frmShipBarcode.lbl9.Create(Label,"Denotes child Parts",True,2325,255,0,4365,9930,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl9.FontStyle(True,False,False,False,False)
+Gui.frmShipBarcode.frameStatus.Create(Frame)
+Gui.frmShipBarcode.frameStatus.Visible(False)
+Gui.frmShipBarcode.frameStatus.Size(14940,10065)
+Gui.frmShipBarcode.frameStatus.Position(2670,360)
+Gui.frmShipBarcode.frameStatus.Caption("Input scan (Product Line 25)")
+Gui.frmShipBarcode.frameStatus.FontSize(9)
+Gui.frmShipBarcode.GsGridStatus.Create(GsGridControl)
+Gui.frmShipBarcode.GsGridStatus.Size(14580,8910)
+Gui.frmShipBarcode.GsGridStatus.Position(135,735)
+Gui.frmShipBarcode.GsGridStatus.Parent("frameStatus")
+Gui.frmShipBarcode.GsGridStatus.Event(RowCellClick,GsGridStatus_RowCellClick)
+Gui.frmShipBarcode.cmdClose.Create(Button)
+Gui.frmShipBarcode.cmdClose.Size(1080,375)
+Gui.frmShipBarcode.cmdClose.Position(10485,255)
+Gui.frmShipBarcode.cmdClose.Parent("frameStatus")
+Gui.frmShipBarcode.cmdClose.Caption("Close")
+Gui.frmShipBarcode.cmdClose.Event(Click,cmdClose_Click)
+Gui.frmShipBarcode.txtPackParts.Create(TextBox,"",True,3090,300,0,150,300,True,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtPackParts.Parent("frameStatus")
+Gui.frmShipBarcode.txtPackParts.Event(KeyPressEnter,txtPackParts_KeyPressEnter)
+Gui.frmShipBarcode.txtPackSerial.Create(TextBox,"",False,3090,300,0,3375,285,False,0,"Arial",8,-2147483643,1)
+Gui.frmShipBarcode.txtPackSerial.Parent("frameStatus")
+Gui.frmShipBarcode.txtPackSerial.Event(KeyPressEnter,txtPackSerial_KeyPressEnter)
+Gui.frmShipBarcode.cmdPackProcess.Create(Button)
+Gui.frmShipBarcode.cmdPackProcess.Size(1065,375)
+Gui.frmShipBarcode.cmdPackProcess.Position(9045,255)
+Gui.frmShipBarcode.cmdPackProcess.Parent("frameStatus")
+Gui.frmShipBarcode.cmdPackProcess.Caption("Process")
+Gui.frmShipBarcode.cmdPackProcess.Event(Click,cmdPackProcess_Click)
+Gui.frmShipBarcode.cmdPackclear.Create(Button)
+Gui.frmShipBarcode.cmdPackclear.Visible(False)
+Gui.frmShipBarcode.cmdPackclear.Size(855,375)
+Gui.frmShipBarcode.cmdPackclear.Position(6525,240)
+Gui.frmShipBarcode.cmdPackclear.Parent("frameStatus")
+Gui.frmShipBarcode.cmdPackclear.Caption("Clear")
+Gui.frmShipBarcode.cmdPackclear.Event(Click,cmdPackclear_Click)
+Gui.frmShipBarcode.frm_confirmation.Create(Frame)
+Gui.frmShipBarcode.frm_confirmation.Size(4545,2055)
+Gui.frmShipBarcode.frm_confirmation.Position(2175,1410)
+Gui.frmShipBarcode.frm_confirmation.Visible(False)
+Gui.frmShipBarcode.lbl_msg.Create(Label,"Not",True,3825,255,0,150,750,True,0,"Arial",8,-2147483633,0)
+Gui.frmShipBarcode.lbl_msg.Parent("frm_confirmation")
+Gui.frmShipBarcode.cmdConfirm.Create(Button)
+Gui.frmShipBarcode.cmdConfirm.Size(855,375)
+Gui.frmShipBarcode.cmdConfirm.Position(150,1530)
+Gui.frmShipBarcode.cmdConfirm.Parent("frm_confirmation")
+Gui.frmShipBarcode.cmdConfirm.Caption("OK")
+Gui.frmShipBarcode.cmdConfirm.Event(Click,cmdConfirm_Click)
+Gui.frmpartsserial..Create
+Gui.frmpartsserial..Caption("Parts Serial Info")
+Gui.frmpartsserial..Size(7650,6600)
+Gui.frmpartsserial..MinX(0)
+Gui.frmpartsserial..MinY(0)
+Gui.frmpartsserial..Position(0,0)
+Gui.frmpartsserial..BackColor(-2147483633)
+Gui.frmpartsserial..MaxButton(False)
+Gui.frmpartsserial..MousePointer(0)
+Gui.frmpartsserial..Event(UnLoad,Form_UnLoad)
+Gui.frmpartsserial.GsGrid.Create(GsGridControl)
+Gui.frmpartsserial.GsGrid.Size(7185,5745)
+Gui.frmpartsserial.GsGrid.Position(135,150)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.sOrderList.Declare 
+V.Global.sFilname.Declare 
+V.Global.lsel.Declare
+V.Global.TodayDate.Declare(Date)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+'TJS, May 2021
+'Customer: Paul C. Buff
+'Quote: 12747
+'BUSINESS CASE: Paul C Buff has an ARC project (5002) that has recently stopped working the way it was intended.  While fixing the issue they are having, they would like some additional functionality added. When a sales order is selected in the 5002 Arc project, they want a lock on the sales order so it can't be changed.  Users in Order Entry as well as other users in ARC 5002 should receive an error message when they select a sales order that is locked by another user.  This lock should also affect Arc 5002 if someone has a sales order open in Order Entry.  The would also like ARC 5002 to automatically advance to the next sales order if the one they selected is locked by someone else.
+'SOLUTION: The current version of ARC 5002 is attached to the call.  It's using a text file as a means to identify locks.  Remove the programming that uses the text file and replace it with entries in the GS Registry. When a user selects an order from ARC 5002, or from Order Entry, first check the GS Registry to see if there is an existing lock for the sales order. If there is a lock, notify the user. "Sales Order locked by <userid> at work station <###> in <program>". If there is no lock, write a record to the GS Registry placing a lock on the order. When a user in Order Entry either clears the screen, or selects a new order, delete the entry in the GS Registry for the previous order that was locked. When a user in ARC 5002 clicks the "Process" button, clear the lock in the GS Registry. From either 5002 or Order Entry, if the user selects an order this is locked by another user, advance to the next order in the list until a lock is not found.  Populate the screen with that order number.
+
+	'Original project by Ranjit Nair
+
+F.ODBC.Connection!conx.OpenCompanyConnection(300)
+'Print hook
+F.Intrinsic.Control.if(V.Caller.Hook,=,"16090")
+'If RepotID is Packing List
+	F.Intrinsic.Control.if(V.Passed.BIP_REPORTID,=,"000051")
+		'print Pklist to printer
+		F.Intrinsic.Control.CallSub(printpcklst)
+	F.Intrinsic.Control.EndIf 
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(CreateSOBrowserSort)
+	F.Intrinsic.Control.If(V.DataTable.DTOrder.RowCount,=,0)
+		F.Data.DataTable.Close("DTOrder")
+		F.Intrinsic.Control.end
+	F.Intrinsic.Control.EndIf
+	V.Global.lsel.Set(-1)
+	F.Intrinsic.Control.CallSub(loadnextorder)
+	
+	Gui.frmShipBarcode.txtcarrier.enabled(false)
+	Gui.frmShipBarcode.cmdcarrierbrowse.enabled(false)
+	Gui.frmShipBarcode.txtshipvia.enabled(false)
+	Gui.frmShipBarcode.cmdshipviabrowse.enabled(false)
+	
+	Gui.frmShipBarcode..Show 
+	Gui.frmShipBarcode.txtscanpart.SetFocus
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.cmdordernobrowse_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sRet.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sFilter.Declare 
+V.Local.sSelect.Declare
+V.Local.iRet.Declare
+V.Local.sSO.Declare
+V.Local.iMSG.Declare
+
+V.Local.sSO.Set(V.Screen.frmShipBarcode!txtorderno.Text.Trim)
+
+'Order browser
+'V.Local.sQuery.Set("Select Order_No, customer, date_order, date_due, customer_po from ORDER_HEADER where Record_type='A'")
+'Function.Intrinsic.UI.SetBrowserHotTypeAhead(True) 
+'F.Intrinsic.String.Split("Order*!*Customer*!*Order Date*!*Due Date*!*PO","*!*",V.Local.sTitles)
+'F.Intrinsic.String.Split("1000*!*1000*!*1000*!*1000*!*2000","*!*",V.local.sWidths)
+'F.Intrinsic.UI.Browser("Orders","conx",V.Local.sQuery,V.Local.sTitles,V.Local.sWidths,8000,9000,V.Local.sRet)
+
+F.Intrinsic.Control.BlockEvents 
+
+''check to see if the custom order browser exist
+'F.Intrinsic.Control.If(V.Global.sOrderList.trim,=,"")
+'Refresh to check New Orders
+F.Intrinsic.Control.CallSub(CreateSOBrowserSort)	
+F.Intrinsic.Control.If(V.DataTable.DTORDERSORT.RowCount,=,0)
+	F.Intrinsic.UI.Msgbox("Open orders not found")
+	F.Data.DataTable.Close("DTOrder")
+	F.Intrinsic.Control.UnBlockEvents  
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.Else
+''	rebuild browser string
+'	F.Data.DataView.Close("DTOrdersort","DVOrdersort")
+'	F.Data.DataView.Create("DTOrdersort","DVOrdersort")
+'	F.Data.DataView.ToString("DTOrdersort","DVOrdersort","Order_No*!*customer*!*date_order*!*date_due*!*customer_po*!*Ship_via","*!*","@!@",V.Global.sOrderList)
+'F.Intrinsic.Control.EndIf	
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.UI.BrowserFromString("Select Order",V.Global.sOrderList,"*!*","@!@","Order_No*!*customer*!*date_order*!*date_due*!*customer_po*!*Ship_via","800*!*800*!*800*!*800*!*1000*!*1000",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Global.General.ReadSoftLock("SO",V.Local.sSO,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,1)
+		F.Global.General.DestroySoftLock("SO",V.Local.sSO,V.Local.iRet)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	
+	F.Intrinsic.String.Build("Order_No = '{0}'",V.Local.sRet(0),V.Local.sFilter)
+	F.Data.DataTable.Select("DTOrdersort",V.Local.sFilter,V.Local.sSelect)
+	
+	V.Local.iMSG.Set(0)
+	
+	F.Intrinsic.Control.Label("LBL_BRWS")
+
+	'check file Open
+	F.Intrinsic.Control.CallSub(verifyfileopen,"ORDNO",V.DataTable.DTOrdersort(V.Local.sSelect).Order_No!FieldValTrim)
+	F.Intrinsic.Control.If(V.Args.RET,=,"Exist")
+		V.local.sSelect.Set(V.Local.sSelect.++)
+		F.Intrinsic.Control.If(V.Local.iMSG,=,0)
+			V.Local.iMSG.Set(1)
+			F.Intrinsic.UI.Msgbox("Order is already in process, advancing to next available order for shipment")
+		F.Intrinsic.Control.EndIf		
+		F.Intrinsic.Control.GoTo("LBL_BRWS")
+	F.Intrinsic.Control.EndIf 
+	
+	Gui.frmShipBarcode.txtscanpart.Enabled(True)
+	Gui.frmShipBarcode.txtscanpart.Text("")
+	Gui.frmShipBarcode.txtCarrier.Text("")
+	Gui.frmShipBarcode.txtcustname.Text("")
+	Gui.frmShipBarcode.txtcustno.Text("")
+	Gui.frmShipBarcode.txtshipvia.Text("")
+
+	'store current selected row
+'	F.Intrinsic.String.Build("Order_No = '{0}'",V.Local.sRet(V.Local.sSelect),V.Local.sFilter)
+'	F.Data.DataTable.Select("DTOrdersort",V.Local.sFilter,V.Local.sSelect)
+
+	'store current selected record position
+	V.Global.lsel.Set(V.Local.sSelect)
+	Gui.frmShipBarcode.txtorderno.Text(V.DataTable.DTOrdersort(V.Local.sSelect).Order_No!FieldValTrim)
+	Gui.frmShipBarcode.txtcustno.Text(V.DataTable.DTOrdersort(V.Local.sSelect).customer!FieldValTrim)
+	Gui.frmShipBarcode.txtcustpo.Text(V.DataTable.DTOrdersort(V.Local.sSelect).customer_po!FieldValTrim)
+
+'	'file already exist delete file - this not req string2file replaces the file
+'	F.Intrinsic.Control.If(V.Global.sFilname,<>,"")
+'		F.Intrinsic.Control.CallSub(releaselockfile)
+'	F.Intrinsic.Control.endif
+'	F.Intrinsic.Control.CallSub(CreateLockFile)
+
+	F.Intrinsic.Control.CallSub(Customer_populate,"customer",V.DataTable.DTOrdersort(V.Local.sSelect).customer!FieldValTrim)
+	F.Intrinsic.Control.CallSub(Carrier_populate)
+	F.Intrinsic.Control.CallSub(LoadData)
+	Gui.frmShipBarcode.cmdProcess.Visible(True)
+	Gui.frmShipBarcode.cmdviewserial.Visible(True)
+	Gui.frmShipBarcode.txtscanpart.SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.UnBlockEvents
+
+Gui.frmShipBarcode..SetFocus
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdordernobrowse_Click.End
+
+Program.Sub.cmdshipviabrowse_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sQuery.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+'Ship via browser
+V.Local.sQuery.Set("Select Ship_Via_Code, Ship_Via from AR_Ship_Via where Ass_Sys='AR' and Ass_Sub_Sys='VIA' ")
+Function.Intrinsic.UI.SetBrowserHotTypeAhead(True) 
+F.Intrinsic.String.Split("ID*!*Ship Via","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("5000*!*12000","*!*",V.Local.sWidths)
+F.Intrinsic.UI.Browser("Ship Via","conx",V.Local.sQuery,V.Local.sTitles,V.local.swidths,5000,5000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.frmShipBarcode.txtshipvia.Text(V.Local.sRet(1))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdshipviabrowse_Click.End
+
+Program.Sub.cmdclear_Click.Start
+F.Intrinsic.Control.Try
+
+Gui.frmShipBarcode.txtscanpart.Enabled(True)
+Gui.frmShipBarcode.txtscanpart.Locked(False)
+Gui.frmShipBarcode.txtscanserialno.Enabled(False)
+Gui.frmShipBarcode.txtscanpart.text("")
+Gui.frmShipBarcode.txtscanserialno.text("")
+Gui.frmShipBarcode.txtscanpart.SetFocus 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdclear_Click.End
+
+Program.Sub.cmdProcess_Click.Start
+F.Intrinsic.Control.Try
+V.Local.ifor.Declare(long)
+V.Local.sFilter.Declare(String)
+V.Local.sHold.Declare
+V.Local.sPart.Declare
+V.Local.sQty.Declare
+V.Local.sSerial.Declare
+V.Local.sLine.Declare
+V.Local.sOrder.Declare
+V.Local.sBin.Declare
+V.Local.sLot.Declare
+V.Local.sFile.Declare
+V.Local.sFileName.Declare
+V.Local.sCarrier.Declare
+V.Local.sQuery.Declare
+V.Local.sType.Declare
+V.Local.sRet.Declare
+V.Local.lRowind.Declare
+V.Local.sSO.Declare
+V.Local.iRet.Declare
+
+V.Local.sSO.Set(V.Screen.frmShipBarcode!txtorderno.Text.Trim)
+
+'Don't Remove
+'0000402,001,100, , Bin, ,Serial , , , , , 
+' order, line, Qty, Lot, Bin, Heat, Serial, Carton#, Carton Code, Pallet Serial, Pallet Code, Pallet#
+F.Intrinsic.Control.BlockEvents 
+
+F.Intrinsic.Control.If(V.DataView.DTLines!DVShip.Exists)
+	F.Data.DataView.Close("DTLines","DVShip")
+F.Intrinsic.Control.EndIf
+
+'Ship complete not partial 
+V.Local.sFilter.Set("QTY_ORDERED>Qty_Scanned and Flag_BOM<>'Y'")
+F.Data.DataView.Create("DTLines","DVShip",22,V.Local.sFilter,"")
+
+F.Intrinsic.Control.If(V.DataView.DTLines!DVShip.RowCount,>,0)
+	F.Intrinsic.UI.Msgbox("No lines to ship/ Incomplete Shipment")
+	F.Data.DataView.Close("DTLines","DVShip")
+	F.Intrinsic.Control.UNBlockEvents 
+	Gui.frmShipBarcode.txtscanpart.SetFocus 
+	F.Intrinsic.Control.ExitSub 
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.UI.InvokeWaitDialog("Shipment in Progress")
+V.Global.TodayDate.Set(V.Ambient.Now)
+
+'F.Data.DataView.SetFilter("DTPart","DVLines","REM_QTY<>Quantity")
+F.Data.DataView.SetFilter("DTPart","DVLines","QtyScan>0")
+F.Intrinsic.Control.For(V.Local.ifor,0,V.DataView.DTPart!DVLines.RowCount--,1)
+	V.Local.sOrder.Set(V.Screen.frmShipBarcode!txtorderno.text)
+'	V.Local.sLine.Set(V.DataView.DTPart!DVLines(V.Local.ifor).Lno!FieldVal)
+	V.Local.sLine.Set(V.DataView.DTPart!DVLines(V.Local.ifor).Record_no!FieldVal)
+	V.Local.sSerial.Set(V.DataView.DTPart!DVLines(V.Local.ifor).Serial_Number!FieldValtrim)
+	V.Local.sQty.Set(V.DataView.DTPart!DVLines(V.Local.ifor).QtyScan!FieldVal)
+	V.Local.sBin.Set("PLANT")
+	V.Local.sLot.Set(V.DataView.DTPart!DVLines(V.Local.ifor).Lot!FieldVal)
+
+	F.Intrinsic.String.Build("{0}{1},{2},{3},{4},{5},,{6},,,,{7}",V.Local.sHold,V.Local.sOrder,V.Local.sLine,V.Local.sQty,V.Local.sLot.trim,V.Local.sBin,V.Local.sSerial,V.Ambient.NewLine,V.Local.sHold)
+F.Intrinsic.Control.Next(V.Local.ifor)
+
+F.Intrinsic.String.Build("{0}SHIPFILE.Txt",V.Caller.Terminal,V.Local.sFileName)
+F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFileName,V.Local.sFile)
+
+'ADD BOM Parent
+V.Local.sFilter.Set("Flag_BOM='Y'")
+Function.Data.DataView.SetFilter("DTLines","DVShip",V.Local.sFilter)
+
+F.Intrinsic.Control.For(V.Local.ifor,0,V.DataView.DTLines!DVShip.RowCount--,1)
+	V.Local.sLine.Set(V.DataView.DTLines!DVShip(V.Local.ifor).OrderLine!FieldVal)
+	V.Local.sPart.Set(V.DataView.DTLines!DVShip(V.Local.ifor).Part!FieldVal)
+	V.Local.sQty.Set(V.DataView.DTLines!DVShip(V.Local.ifor).QTY_ORDERED!FieldVal)
+	F.Intrinsic.String.Build("{0}{1},{2},{3},,{4},,{5},,,,{6}",V.Local.sHold,V.Local.sOrder,V.Local.sLine,V.Local.sQty,"","",V.Ambient.NewLine,V.Local.sHold)
+F.Intrinsic.Control.Next(V.Local.ifor)
+
+F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sHold)
+
+V.Local.sCarrier.set(V.Screen.frmShipBarcode!txtcarrier.Text)
+F.Intrinsic.String.Concat("Select SRVC_TYPE FROM OE_CARRIER where CARRIER_CD ='",V.Local.sCarrier,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	V.Local.sType.Set(V.ODBC.conx!rst.FieldValTrim!SRVC_TYPE)
+F.Intrinsic.Control.Endif
+F.ODBC.conx!rst.Close
+
+'Concat parameters for program
+F.Intrinsic.String.RPad(V.local.sCarrier," ",6,V.Local.sRet)
+F.Intrinsic.String.LPad(V.Local.sType,"0",3,V.Local.sType)
+'Old Method
+'F.Intrinsic.String.Concat(V.Ambient.QuadQuote,V.Caller.CompanyCode,V.Caller.Terminal,"SHIPFILE",V.Local.sRet,V.local.sType,V.Ambient.QuadQuote,V.Local.sRet)
+'F.Intrinsic.String.Build("{0}{1}{2}SHIPFILE{3}{4}{0}",V.Ambient.DblQuote,V.Caller.CompanyCode,V.Caller.Terminal,V.Local.sRet,V.local.sType,V.Ambient.DblQuote,V.Local.sRet)
+F.Intrinsic.String.Build("{0}{1}SHIPFILE{2}{3}",V.Caller.CompanyCode,V.Caller.Terminal,V.Local.sRet,V.local.sType,V.Local.sRet)
+
+'TJS
+F.Global.General.ReadSoftLock("SO",V.Local.sSO,V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet,=,1)
+	F.Global.General.DestroySoftLock("SO",V.Local.sSO,V.Local.iRet)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Task.LaunchGSSsync("ORD98HOD","-c",V.Local.sRet)
+
+F.Intrinsic.UI.ChangeWaitStatus("Verifying Shipment")
+'verify shipment - pass no of line shipped
+F.Intrinsic.Control.CallSub(verify,"CNT",V.DataView.DTPart!DVLines.RowCount,"sSO",V.Local.sSO)
+
+F.Intrinsic.Control.UnBlockEvents 
+F.Intrinsic.UI.CloseWaitDialog 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdProcess_Click.End
+
+Program.Sub.cmdviewserial_Click.Start
+F.Intrinsic.Control.Try
+
+Gui.frmpartsserial..Visible(True)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdviewserial_Click.End
+
+Program.Sub.cmdcarrierbrowse_Click.Start
+F.Intrinsic.Control.Try
+
+V.Local.sRet.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+
+'Carrier browser
+V.Local.sQuery.Set("Select Carrier_CD, Long_Desc from OE_CARRIER")
+Function.Intrinsic.UI.SetBrowserHotTypeAhead(True) 
+F.Intrinsic.String.Split("Carrier*!*Description","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("5000*!*12000","*!*",V.Local.sWidths)
+F.Intrinsic.UI.Browser("Carrier","conx",V.Local.sQuery,V.Local.sTitles,V.local.swidths,5000,5000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.frmShipBarcode.txtcarrier.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdcarrierbrowse_Click.End
+
+Program.Sub.txtorderno_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtorderno_KeyPressEnter.End
+
+Program.Sub.txtsanpart_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+V.Local.sPart.Declare(String)
+V.Local.sFilter.Declare(String)
+V.Local.sSelectLN.Declare(String)
+V.Local.sSelect.Declare(String)
+V.Local.fqtyord.Declare(float)
+V.Local.fqtyscan.Declare(float)
+
+'Serial_Number,Quantity
+V.Local.sPart.Set(V.Screen.frmShipBarcode!txtscanpart.Text)
+
+F.Intrinsic.Control.If(V.Local.sPart.trim,=,"PROCESS")
+	F.Intrinsic.Control.CallSub(cmdprocess_click)
+F.Intrinsic.Control.ElseIf(V.Local.sPart.trim,<>,"")
+	F.Intrinsic.String.Build("Part = '{0}'",V.Local.sPart,V.Local.sFilter)
+	F.Data.DataTable.Select("DTPart",V.Local.sFilter,V.Local.sSelect)
+	F.Intrinsic.Control.If(V.Local.sSelect,=,"***NORETURN***")
+		F.Intrinsic.UI.Msgbox("Part not found/Not in Stock")
+
+		Gui.frmShipBarcode.txtscanpart.SetFocus 
+	F.Intrinsic.Control.Else
+		'check for blank serial no
+		F.Intrinsic.String.Build("Part = '{0}' and Serial_Number = ''",V.Local.sPart,V.Local.sFilter)
+		F.Data.DataTable.Select("DTPart",V.Local.sFilter,V.Local.sSelect)
+		F.Intrinsic.Control.If(V.Local.sSelect,=,"***NORETURN***")
+			Gui.frmShipBarcode.txtscanpart.Enabled(false)
+			Gui.frmShipBarcode.txtscanpart.locked(True)
+			Gui.frmShipBarcode.txtscanserialno.Enabled(True)
+			Gui.frmShipBarcode.txtscanserialno.locked(False)
+			Gui.frmShipBarcode.txtscanserialno.Visible(True)
+			Gui.frmShipBarcode.txtscanserialno.SetFocus 
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(validate_qty,"PartNo",V.Local.sPart,"SerialNo","","PMode","PS")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtsanpart_KeyPressEnter.End
+
+Program.Sub.txtscanserialno_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+V.Local.sPart.Declare
+V.Local.sSerialno.Declare
+V.Local.sFilter.Declare
+V.Local.sSelect.Declare
+
+V.Local.sPart.Set(V.Screen.frmShipBarcode!txtscanpart.Text)
+V.Local.sSerialno.Set(V.Screen.frmShipBarcode!txtscanserialno.Text)
+	F.Intrinsic.String.Build("Part = '{0}' and Serial_Number = '{1}'",V.Local.sPart,V.Local.sSerialno,V.Local.sFilter)
+	F.Data.DataTable.Select("DTPart",V.Local.sFilter,V.Local.sSelect)
+	F.Intrinsic.Control.If(V.Local.sSelect,=,"***NORETURN***")
+		F.Intrinsic.UI.Msgbox("Part not found/Not in Stock")
+		Gui.frmShipBarcode.txtscanserialno.SetFocus 
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(validate_qty,"PartNo",V.Local.sPart,"SerialNo",V.Local.sSerialno,"PMode","PS")
+		Gui.frmShipBarcode.txtscanserialno.text("")
+	F.Intrinsic.Control.endif
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtscanserialno_KeyPressEnter.End
+
+Program.Sub.customer_populate.Start
+F.Intrinsic.Control.Try
+V.Local.sQuery.Declare(String)
+
+'Populates customer name
+F.Intrinsic.String.Concat("Select * from CUSTOMER_MASTER where REC='1' AND Customer like '%",V.args.customer,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstCust",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstCust.EOF,=,False)
+	Gui.frmShipBarcode.txtcustname.Text(V.ODBC.conx!rstCust.FieldVal!NAME_CUSTOMER)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstCust.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.customer_populate.End
+
+Program.Sub.carrier_populate.Start
+F.Intrinsic.Control.Try
+V.Local.sQuery.Declare(String)
+
+'Looks in table for carrier and ship via, populates fields on screen
+F.Intrinsic.String.Concat("Select * from ORDER_SHIP_TO where ORDER_NO='",V.Screen.frmShipBarcode!txtorderno.text,"' AND RECORD_TYPE='A'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstCarrier",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstCarrier.EOF,=,False)
+'	V.Global.sCarrier.Set(V.ODBC.conx!rstCarrier.FieldValTrim!Carrier_CD)
+'	V.Global.sShipVia.Set(V.ODBC.conx!rstCarrier.FieldValTrim!SHIP_VIA_SHIP)
+	Gui.frmShipBarcode.txtcarrier.Text(V.ODBC.conx!rstCarrier.FieldValTrim!CARRIER_CD)
+	Gui.frmShipBarcode.txtshipvia.Text(V.ODBC.conx!rstCarrier.FieldValTrim!SHIP_VIA_SHIP)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstCarrier.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.carrier_populate.End
+
+Program.Sub.LoadData.Start
+F.Intrinsic.Control.Try
+V.Local.sQuery.Declare(String)
+V.Local.i.Declare(long)
+V.Local.iTotClmn.Declare(long)
+V.Local.stitle.Declare(String)
+V.Local.ifor.Declare(long)
+V.Local.sFilter.Declare 
+
+F.Intrinsic.Control.If(V.Screen.frmShipBarcode!txtorderno.Text ,<>,"")
+	F.Intrinsic.String.Build("Select ' ' as 'Line', LEFT(OL.RECORD_NO,3) OrderLine,OL.PART, IM.DESCRIPTION, OL.QTY_BO as QTY_ORDERED,'0' as 'Qty_Scanned',OL.Flag_BOM from ORDER_LINES OL LEFT JOIN INVENTORY_MSTR IM ON OL.PART=IM.PART and OL.LOCATION=IM.LOCATION where OL.QTY_BO>0 and OL.Record_Type='L' and record_no <> '8000' and ORDER_NO= '{0}' Order by RECORD_NO",V.Screen.frmShipBarcode!txtorderno.Text,V.Local.sQuery)
+
+	F.Intrinsic.Control.If(V.DataTable.DTLines.Exists,=,True)
+		F.Data.DataTable.Close("DTLines")
+	F.Intrinsic.Control.EndIf 
+
+	F.Intrinsic.Control.If(V.DataTable.DTPart.Exists,=,True)
+		F.Data.DataTable.Close("DTPart")
+	F.Intrinsic.Control.EndIf 
+
+	F.Data.DataTable.CreateFromSQL("DTLines","conx",V.Local.sQuery,True)
+
+	Function.Intrinsic.UI.InvokeWaitDialog("Loading Data...")
+
+'	V.Local.sFilter.Set("Flag_BOM = 'Y'")
+'	F.Data.DataView.Create("DTLines","dvBOM",22,V.Local.sFilter,"")
+
+'	V.Local.ifor.Set(0)
+'	'Check for BOM Parts
+''	F.Intrinsic.Control.For(V.Local.ifor,0,V.DataView.DTLines!dvBOM.RowCount--,1)
+'		F.Intrinsic.Control.CallSub(explode_bom,"Parent",V.DataView.DTLines!dvBOM(V.Local.ifor).PART!FieldVal,"Ln",V.DataView.DTLines!dvBOM(V.Local.ifor).OrderLine!FieldVal,"QTY",V.DataView.DTLines!dvBOM(V.Local.ifor).QTY_ORDERED!FieldVal)
+'''		F.Intrinsic.UI.Msgbox(V.DataTable.DTLines(V.Local.ifor).PART)
+'''		F.Intrinsic.Control.CallSub(explode_bom,"Parent",V.DataTable.DTLines(V.Local.ifor).PART!FieldVal,"Ln",V.Local.ifor)
+''	F.Intrinsic.Control.Next(V.Local.ifor)
+'''	F.Data.DataView.Close("DTLines","dvBOM")
+
+
+	F.Data.DataTable.SetValueFormat("DTLines",-1,"QTY_ORDERED","QTY_ORDERED", "0")
+	F.Data.DataTable.SetSeries("DTLines", "Line",1, 1)
+
+	F.Data.DataView.Create("DTLines","DVLines",22,"","OrderLine")
+	F.Intrinsic.Control.CallSub(getpartinfo)
+
+	Gui.frmShipBarcode.GridShipping.AddGridViewFromDataView("GridView","DTLines","DVLines")
+
+	Gui.frmShipBarcode.GridShipping.GetColumnCount("GridView",V.Local.iTotClmn)
+	F.Intrinsic.Math.Sub(V.Local.iTotClmn,1,V.Local.iTotClmn)
+	F.Intrinsic.Control.For(V.Local.i,0,V.Local.iTotClmn,1)
+		Gui.frmShipBarcode.GridShipping.GetColumnNamebyIndex("GridView",V.Local.i,V.Local.stitle)
+		Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView",V.Local.stitle,"AllowEdit",False)
+		Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView",V.Local.stitle,"ReadOnly",True)
+
+		Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView",V.Local.stitle,"HeaderFontBold","True")
+		Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView",V.Local.stitle,"HeaderBackColor","#7FFF00")
+'		Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView",V.Local.stitle,"HeaderHAlignment","Center")
+	F.Intrinsic.Control.Next(V.Local.i)
+
+	Gui.frmShipBarcode.GridShipping.AddStyleFormatCOndition("GridView", "Flag_BOM", "tagName1","Equal","C")
+	Gui.frmShipBarcode.GridShipping.SetStyleFormatConditionProperty("GridView","Flag_BOM","tagName1","Forecolor","Green")
+	Gui.frmShipBarcode.GridShipping.SetStyleFormatConditionProperty("GridView","Flag_BOM","tagName1","ApplyToRow",True)
+
+	Gui.frmShipBarcode.GridShipping.AddStyleFormatCOndition("GridView", "Flag_BOM", "tagName2","Equal","Y")
+	Gui.frmShipBarcode.GridShipping.SetStyleFormatConditionProperty("GridView","Flag_BOM","tagName2","Backcolor","Yellow")
+	Gui.frmShipBarcode.GridShipping.SetStyleFormatConditionProperty("GridView","Flag_BOM","tagName2","ApplyToRow",True)
+
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","QTY_ORDERED","Caption","Qty to Ship")
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","Qty_Scanned","Caption","Qty Scanned")
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","OrderLine","Caption","Order Line")
+
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","Line","MinWidth",50)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","Line","MaxWidth",50)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","OrderLine","MinWidth",80)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","OrderLine","MaxWidth",80)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","Part","MinWidth",120)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","Part","MaxWidth",120)
+
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","QTY_ORDERED","MinWidth",80)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","QTY_ORDERED","MaxWidth",80)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","Qty_Scanned","MinWidth",80)
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView","Qty_Scanned","MaxWidth",80)
+
+	Gui.frmShipBarcode.GridShipping.SetColumnProperty("GridView", "Flag_BOM", "Visible", False)
+
+	Function.Intrinsic.UI.CloseWaitDialog 
+
+	Gui.frmShipBarcode.GridShipping.MainView("GridView")
+
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadData.End
+
+Program.Sub.Explode_BOM.Start
+F.Intrinsic.Control.Try
+V.Local.sFieldNames.Declare 
+V.Local.sTypes.Declare 
+V.Local.sFilePath.Declare 
+V.Local.sParams.Declare 
+V.Local.bExists.Declare 
+V.Local.sRet.Declare 
+V.Local.sFile.Declare 
+V.Local.ifor.Declare 
+V.Local.sRet1.Declare 
+V.Local.sfilter.Declare 
+
+V.Local.sFieldNames.Set("Line*!*Seq*!*Part*!*Description*!*Cat*!*Source*!*Qty*!*OnHand*!*OnOrder*!*Required*!*Net*!*RtrNet*!*Parent*!*ldHrs*!*LdDate*!*filler*!*UM*!*GSS_EXTRA_DESC*!*ParentFLAG")
+V.Local.sTypes.Set("String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String")
+
+F.Intrinsic.String.Build("{0}\BOM{1}",V.System.Temp,V.Caller.Terminal,V.Local.sFilePath)
+F.Intrinsic.String.Build("0{0}{1}{0}{2}",V.Ambient.Tab,V.Args.Parent,V.Local.sFilePath,V.Local.sParams)
+F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sParams)
+F.Global.General.CallWrapperSync(410000,V.Local.sFilePath)
+
+'Explode w/ qty
+'F.Intrinsic.String.Concat(V.System.Temp,"\EXPLODEBOM",V.Caller.Terminal,".txt",V.Local.sFilePath)
+'F.Intrinsic.String.Build("{2}{0}{1}{0}{3}",V.Ambient.Tab,V.local.sparentpart,0,0,V.Local.sFile)
+'F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sFile)
+'F.Global.General.CallWrapperSync(410000,V.Local.sFilePath)
+
+F.Intrinsic.File.Exists(V.Local.sFilePath,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.File.FiletoStringArray(V.Local.sFilePath,V.Ambient.Tab,V.Local.sRet)
+V.Local.sRet.RedimPreserve(0,3)
+F.Intrinsic.File.GetFileNameFromFQN(V.Local.sRet(3),V.Local.sFile.Trim)
+F.Intrinsic.String.Split(V.Local.sFile," ",V.Local.sFile)
+F.Intrinsic.String.Build("{0}\{1}",V.System.Temp,V.Local.sFile(0).Trim,V.Local.sFilePath)
+F.Intrinsic.File.Exists(V.Local.sFilePath,V.Local.bExists)
+
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'load it to a string
+F.Intrinsic.File.File2String(V.Local.sFilePath,V.Local.sRet)
+'F.Intrinsic.String.Replace(V.Local.sRet,"*","",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.DataTable.DTTemp.Exists,=,True)
+	F.Data.DataTable.Close("DTTemp")
+Function.Intrinsic.Control.EndIf
+
+F.Data.DataTable.CreateFromString("DTTemp",V.Local.sret,V.Local.sFieldNames,V.Local.sTypes,"|~|",V.ambient.newline)
+
+'F.Data.DataTable.AddColumn("DTTemp","REL",string)
+'
+'
+'F.Intrinsic.String.Build("{0}-{1}",V.Args.Parent.trim,V.Args.Ln.trim,V.Local.sRet1)
+'F.Data.DataTable.SetValue("DTTemp",-1,"REL",V.Local.sRet1)
+
+
+'Function.Data.DataTable.DeleteRow("DTTemp",V.dataTable.DTTemp.RowCount--)
+
+'F.Intrinsic.Control.For(V.Local.ifor,6,0,-1)
+'	Function.Data.DataTable.DeleteRow("DTTemp", V.Local.ifor)
+'F.Intrinsic.Control.Next(V.Local.ifor)
+
+	V.Local.sfilter.Set("Seq like '1**%'")
+
+	F.Data.DataView.Create("DTTemp","DVTemp",22,V.Local.sFilter,"")
+
+	Function.Data.DataView.ToDataTableDistinct("DTTemp","DVTemp","DTTemp1","Line*!*Part*!*Description*!*Qty")
+	F.Data.DataTable.AddColumn("DTTemp1","OrderLine",string)
+	F.Data.DataTable.AddColumn("DTTemp1","Flag_BOM",string)
+	F.Data.DataTable.SetValue("DTTemp1",-1,"OrderLine",V.Args.Ln)
+	F.Data.DataTable.SetValue("DTTemp1",-1,"Flag_BOM","C")
+
+	' Multiply Qty_ordered to BOM Quantity
+	'workatound for datatype conversioon for expression column
+	F.Data.DataTable.AddColumn("DTTemp1","QTY1",float)
+	F.Data.DataTable.SetValue("DTTemp1",-1,"QTY1",V.Args.Qty)
+
+	F.Data.DataTable.AddExpressionColumn("DTTemp1","Qty2","float","Qty")
+
+	F.Data.DataTable.AddExpressionColumn("DTTemp1","Qty_Ordered","float","QTY1*Qty2")
+
+'	F.Data.DataTable.SetPK("DTLines","OrderLine")
+'	F.Data.DataTable.SetPK("DTTemp1","OrderLine")
+
+	F.Data.DataTable.Merge("DTTemp1","DTLines",False,2)
+'	Function.Data.DataView.SetSort(datatable name [string], dataview name [string], sort [string])
+'	Function.Data.DataView.SetSort("DTLines","DVLines","OrderLine ASC")
+
+'	Function.Data.DataView.ToDataTableDistinct("DTTemp","DVTemp","DTParent1","Parent")
+'	F.Data.DataTable.AddColumn("DTParent1","ParentFLAG","string")
+'	F.Data.DataTable.SetValue("DTParent1",-1,"ParentFLAG","Y")
+'
+''	Function.Data.Dictionary.CreateFromDataTable("DICParent","DTParent1","Parent","ParentFLAG")
+'	F.Data.Dictionary.SetDefaultReturn("DICParent"," ")
+'
+'	F.Data.DataTable.FillFromDictionary("DTTemp","DICParent","Part","ParentFLAG")
+'
+'F.Data.DataTable.Merge("DTTemp","DTINVTemp",True,1)
+
+F.Data.DataTable.Close("DTTemp")
+'F.Data.Dictionary.Close("DICParent")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.Explode_BOM.End
+
+Program.Sub.GetPartInfo.Start
+F.Intrinsic.Control.Try
+V.Local.sRet.Declare(String)
+V.Local.ifor.Declare
+V.Local.sSql.Declare(String)
+V.Local.sLastPart.Declare(string)
+V.Local.sLineNo.Declare(string)
+V.Local.fInvQty.Declare(string)
+
+F.Intrinsic.String.Build("select distinct ITM.part as Part,Serial_Number,(select sum(Quantity) as 'Stock' from V_ITEM_MASTER where part = ITM.part and Bin = Itm.Bin and Quantity>0 group by part),Quantity as 'Rem_Qty' ,Product_Line,Lot,LEFT(ORD.RECORD_NO,3) as RECORD_NO from v_ITEM_MASTER ITM join v_order_lines ORD on ITM.part = ORD.part where Flag_BOM <> 'Y' and ITM.BIN = 'PLANT' and Quantity>0  and ORDER_NO='{0}' and QTY_BO>0 and record_no <> '8000' and Flag_BOM <> 'Y' order by part,RECORD_NO",V.Screen.frmShipBarcode!txtorderno.text,V.Local.sSql)
+
+ F.Data.DataTable.CreateFromSQL("DTPart","conx",V.Local.sSql,True)
+'F.Data.DataTable.AddColumn("DTPart","TotINVQty","float")
+'F.Data.DataTable.AddExpressionColumn("DTPart","QtyScan","long","[Quantity] - [Rem_Qty]")
+F.Data.DataTable.AddColumn("DTPart","QtyScan","float",0)
+
+F.Data.DataTable.SetValueFormat("DTPart",-1,"Rem_Qty","Rem_Qty", "0")
+F.Data.DataView.Create("DTPart","DVLines")
+F.Intrinsic.Control.CallSub(loadgrid)
+
+V.Local.ifor.Set(0)
+
+'loop to Hide Duplicate rows - customer requested to hide serialized info
+F.Data.DataView.Create("DTPart","DVPartInv",22,"","Part")
+F.Intrinsic.Control.For(V.Local.ifor,0,V.DataView.DTPart!DVPartInV.rowcount--,1)
+	F.Intrinsic.Control.if(V.Local.sLastPart,=,V.DataView.DTPart!DVPartInv(V.Local.ifor).part!fieldvaltrim)
+		Gui.frmpartsserial.GsGrid.HideRow("GridView",V.Local.ifor,True)
+	F.Intrinsic.Control.Else 
+		V.Local.sLastPart.Set(V.DataView.DTPart!DVPartInv(V.Local.ifor).part!fieldvaltrim)
+		V.Local.sLineNo.Set(V.DataView.DTPart!DVPartInv(V.Local.ifor).record_no!fieldvaltrim)
+	F.Intrinsic.Control.EndIf 
+F.Intrinsic.Control.next(V.Local.ifor)
+F.Data.DataView.Close("DTPart","DVPartInv")
+
+F.Data.DataTable.SetValueFormat("DTPart",-1,"Stock","Stock", "0")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.GetPartInfo.End
+
+Program.Sub.Validate_Qty.Start
+F.Intrinsic.Control.Try
+V.Local.sPart.Declare
+V.Local.sFilter.Declare
+V.Local.sFilter1.Declare
+V.Local.fqtyscan.Declare
+V.Local.fqtyord.Declare
+V.Local.sSelect.Declare
+V.Local.sSelectLN.Declare 
+V.Local.fRem_Qty.Declare
+V.Local.sLno.Declare
+V.Local.i.Declare(long)
+V.Local.sInvFilter.Declare
+V.Local.fQty.Declare
+
+F.Intrinsic.String.Build("Part = '{0}'",V.Args.PartNo,V.Local.sFilter)	
+
+F.Data.DataTable.Select("DTLines",V.Local.sFilter,V.Local.sSelectLN)
+F.Intrinsic.String.Split(V.Local.sSelectLN,"*!*",V.Local.sSelectLN)
+
+'loop to find similar partno
+F.Intrinsic.Control.For(V.Local.i,0,V.Local.sSelectLN.UBound,1)
+	V.Local.fqtyord.Set(V.DataTable.DTLines(V.Local.sSelectLN(V.Local.i).Long).Qty_Ordered!fieldval)
+	V.Local.fqtyscan.Set(V.DataTable.DTLines(V.Local.sSelectLN(V.Local.i).Long).Qty_Scanned!fieldval)
+	F.Intrinsic.Math.Add(V.Local.fqtyscan,1,V.Local.fqtyscan)
+	F.Intrinsic.Control.If(V.Local.fqtyscan,<=,V.Local.fqtyord)
+		F.Intrinsic.Control.ExitFor(V.Local.i)
+	F.Intrinsic.Control.EndIf 
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.Control.If(V.Local.i,>,V.Local.sSelectLN.UBound)
+'	F.Intrinsic.UI.Msgbox("Shipment quantity is greater than order quantity")
+	Gui.frmShipBarcode.lbl_msg.caption("Shipment quantity is greater than order quantity")
+	Gui.frmShipBarcode.frm_confirmation.Visible(True)
+	F.Intrinsic.Control.CallSub(cmdclear_click)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf 
+
+'V.Local.fqtyord.Set(V.DataTable.DTLines(V.Local.sSelectLN(0).Long).Qty_Ordered!fieldval)
+'V.Local.fqtyscan.Set(V.DataTable.DTLines(V.Local.sSelectLN(0).Long).Qty_Scanned!fieldval)
+V.Local.sLno.Set(V.DataTable.DTLines(V.Local.sSelectLN(V.Local.i)).OrderLine!fieldval)
+'F.Intrinsic.Math.Add(V.Local.fqtyscan,1,V.Local.fqtyscan)
+
+F.Intrinsic.Control.If(V.Local.fqtyord,>=,V.Local.fqtyscan)
+
+	F.Intrinsic.Control.If(V.Args.PMode,=,"PS")
+		F.Intrinsic.String.Build("{0} and Serial_Number = '{1}' ",V.Local.sFilter,V.Args.SerialNo,V.Local.sFilter)
+	F.Intrinsic.Control.EndIf 
+
+	V.Local.sInvFilter.Set(V.Local.sFilter)
+
+'	F.Intrinsic.String.Build("{0} and Rem_Qty >={1}",V.Local.sFilter,V.Local.fqtyscan,V.Local.sFilter)
+	F.Intrinsic.String.Build("{0} and Rem_Qty >=1",V.Local.sFilter,V.Local.sFilter)
+
+	F.Intrinsic.String.Build("{0} and Record_No = {1}",V.Local.sFilter,V.Local.sLno,V.Local.sFilter)
+	F.Data.DataTable.Select("DTPart",V.Local.sFilter,V.Local.sSelect)
+	F.Intrinsic.Control.If(V.Local.sSelect,<>,"***NORETURN***")
+		F.Data.DataTable.SetValue("DTLines",V.Local.sSelectLN(V.Local.i).Long,"Qty_Scanned",V.Local.fqtyscan)
+		F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+		V.Local.fRem_Qty.Set(V.DataTable.DTPart(V.Local.sSelect(0)).Rem_Qty!Fieldval)
+		F.Intrinsic.Math.sub(V.Local.fRem_Qty,1,V.Local.fRem_Qty)
+'		F.Data.DataTable.SetValue("DTPart",V.Local.sSelect(0).Long,"Rem_Qty",V.Local.fRem_Qty)
+
+		V.Local.fQty.Set(V.DataTable.DTPart(V.Local.sSelect(0)).QtyScan!Fieldval)
+		F.Intrinsic.Math.add(V.Local.fQty,1,V.Local.fQty)
+		F.Data.DataTable.SetValue("DTPart",V.Local.sSelect(0).Long,"QtyScan",V.Local.fQty)
+
+		F.Data.DataView.Create("DTPart","DTTempInv",22,V.Local.sInvFilter,"")
+		F.Data.DataView.SetValue("DTPart","DTTempInv",-1,"Rem_Qty",V.Local.fRem_Qty)
+		F.Data.DataView.Close("DTPart","DTTempInv")
+
+'		F.Data.DataTable.SetValue("DTPart",V.Local.sSelect(0),"Lno",V.Local.sLno)
+	F.Intrinsic.Control.Else
+'		F.Intrinsic.UI.Msgbox("Not enough quantity in stock")
+		Gui.frmShipBarcode.lbl_msg.caption("Not enough quantity in stock")
+		Gui.frmShipBarcode.frm_confirmation.Visible(True)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf 
+F.Intrinsic.Control.Else
+'	F.Intrinsic.UI.Msgbox("Shipment quantity is greater than order quantity")
+	Gui.frmShipBarcode.lbl_msg.caption("Shipment quantity is greater than order quantity")
+	Gui.frmShipBarcode.frm_confirmation.Visible(True)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.CallSub(cmdclear_click)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.Validate_Qty.End
+
+Program.Sub.LoadGrid.Start
+F.Intrinsic.Control.Try
+V.Local.i.Declare 
+V.Local.iTotClmn.Declare 
+V.Local.stitle.Declare 
+V.Local.sSql.Declare 
+
+Gui.frmpartsserial.GsGrid.AddGridViewFromDataView("GridView","DTPart","DVLines")	
+Gui.frmpartsserial.GsGrid.GetColumnCount("GridView",V.Local.iTotClmn)
+F.Intrinsic.Math.Sub(V.Local.iTotClmn,1,V.Local.iTotClmn)
+
+F.Intrinsic.Control.For(V.Local.i,0,V.Local.iTotClmn,1)
+	Gui.frmpartsserial.GsGrid.GetColumnNamebyIndex("GridView",V.Local.i,V.Local.stitle)
+	Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView",V.Local.stitle,"HeaderFontBold","True")
+	Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView",V.Local.stitle,"HeaderBackColor","#7FFF00")
+F.Intrinsic.Control.Next(V.Local.i)
+
+Gui.frmpartsserial.GsGrid.SetGridViewProperty("GridView","Editable",False)
+Gui.frmpartsserial.GsGrid.SetGridViewProperty("GridView","ReadOnly",True)
+
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView","Serial_Number","Caption","Serial No")
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView","Rem_Qty","Caption","Rem Qty")
+
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView", "Product_Line", "Visible", False)
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView", "Serial_Number", "Visible", False)
+
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView", "Rem_Qty", "Visible", False)
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView", "QtyScan", "Visible", False)
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView", "Record_NO", "Visible", False)
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView", "Lot", "Visible", False)
+
+Gui.frmpartsserial.GsGrid.SetColumnProperty("GridView","Stock","VisibleIndex",1)
+
+Gui.frmpartsserial.GsGrid.MainView("GridView")
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadGrid.End
+
+Program.Sub.Verify.Start
+F.Intrinsic.Control.Try
+V.Local.sQuery.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.iCount.Declare(Long,0)
+V.Local.iHdl.Declare(Long)
+V.Local.bRet.Declare(Boolean)
+V.Local.sFilter.Declare(String)
+V.Local.iTotClmn.Declare
+V.Local.stitle.Declare
+V.Local.i.Declare
+V.Local.RetDate.Declare(date)
+V.Local.lRet.Declare(long)
+V.Local.iRet.Declare
+
+F.Intrinsic.String.Build("Select TOP {0} ORDER_LINE,PART,PART_DESC,QUANTITY,STATUS,DATE_SHIP,TIME_SHIP From v_SHIPMENT_LOG where ORDER_NO='{1}' ORDER BY DATE_SHIP DESC, TIME_SHIP DESC ",V.Args.CNT,V.Screen.frmShipBarcode!txtOrderno.Text,V.Local.sQuery)
+
+F.Data.DataTable.CreateFromSQL("DTVerify","conx",V.Local.sQuery)
+
+V.Local.sFilter.Set("Status <> 'Successful'")
+'F.Data.DataView.Create("DTVerify","DVVerify","","")
+F.Data.DataView.Create("DTVerify","DVVerify",22,V.Local.sFilter,"")
+F.Intrinsic.Control.If(V.DataView.DTVerify!DVVerify.RowCount,>,0)
+
+	Function.Intrinsic.Date.CombineDateTime(V.DataView.DTVerify!DVVerify(0).DATE_SHIP!FieldVal,V.DataView.DTVerify!DVVerify(0).TIME_SHIP!FieldVal,variable.local.RetDate)
+	Function.Intrinsic.Date.Dateadd ("N",-5,variable.Global.TodayDate, variable.Global.TodayDate)
+	Function.Intrinsic.Date.DateDiff ("N",variable.Global.TodayDate,variable.local.RetDate, variable.local.lRet)
+	'check to see date time else old order
+	F.Intrinsic.Control.If(variable.local.lRet,>,0)
+		 Gui.frmShipBarcode.GsGridStatus.AddGridViewFromDataView("GridView1","DTVerify","DVVerify")	
+		 Gui.frmShipBarcode.GsGridStatus.GetColumnCount("GridView1",V.Local.iTotClmn)
+	
+		F.Intrinsic.Math.Sub(V.Local.iTotClmn,1,V.Local.iTotClmn)
+		F.Intrinsic.Control.For(V.Local.i,0,V.Local.iTotClmn,1)
+			Gui.frmShipBarcode.GsGridStatus.GetColumnNamebyIndex("GridView1",V.Local.i,V.Local.stitle)
+			Gui.frmShipBarcode.GsGridStatus.SetColumnProperty("GridView1",V.Local.stitle,"HeaderFontBold","True")
+			Gui.frmShipBarcode.GsGridStatus.SetColumnProperty("GridView1",V.Local.stitle,"HeaderBackColor","#7FFF00")
+		F.Intrinsic.Control.Next(V.Local.i)
+	
+		Gui.frmShipBarcode.GsGridStatus.SetGridViewProperty("GridView1","Editable",False)
+		Gui.frmShipBarcode.GsGridStatus.SetGridViewProperty("GridView1","ReadOnly",True)
+	
+		Gui.frmShipBarcode.GsGridStatus.SetColumnProperty("GridView1","STATUS","MinWidth",350)
+		Gui.frmShipBarcode.GsGridStatus.SetColumnProperty("GridView1","STATUS","MaxWidth",350)
+	
+		Gui.frmShipBarcode.GsGridStatus.MainView("GridView1")
+		Gui.frmShipBarcode.frameStatus.Visible(True)
+		Gui.frmShipBarcode.frameStatus.Position(135, 435)
+		Gui.frmShipBarcode.frameStatus.Size(14940,9780)
+		Gui.frmShipBarcode.GsGridStatus.Size(14580,8910)
+		Gui.frmShipBarcode.frameStatus.Caption("")
+		Gui.frmShipBarcode.txtPackParts.Visible(false)
+		Gui.frmShipBarcode.txtPackSerial.Visible(false)
+	
+		Gui.frmShipBarcode.cmdClose.Visible(True)
+		Gui.frmShipBarcode.cmdPackProcess.Visible(false)
+	F.Intrinsic.Control.EndIf 
+
+	F.Data.DataTable.Close("DTVerify")
+	F.Global.General.ReadSoftLock("SO",V.Args.sSO,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,0)
+	F.Global.General.CreateSoftLock("SO",V.Args.sSO,V.Local.iRet)
+F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(show_packaging)
+'	F.Intrinsic.UI.Msgbox("Order Shipped Successfully")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.Verify.End
+
+Program.Sub.cmdClose_Click.Start
+F.Intrinsic.Control.Try
+V.Local.iRet.Declare
+
+Gui.frmShipBarcode.txtPackParts.Text("")
+F.Intrinsic.Control.If(V.DataTable.DTPack.Exists,=,True)
+	F.Data.DataTable.Close("DTPack")
+F.Intrinsic.Control.EndIf 
+
+F.Data.DataTable.Close("DTLines")
+F.Intrinsic.Control.If(V.Screen.frmShipBarcode!cmdPackProcess.Visible,=,True)
+'load next order for shipment
+	F.Global.General.ReadSoftLock("SO",V.Screen.frmShipBarcode!txtorderno.Text.Trim,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,1)
+		F.Global.General.DestroySoftLock("SO",V.Screen.frmShipBarcode!txtorderno.Text.Trim,V.Local.iRet)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(CreateSOBrowserSort)
+	F.Intrinsic.Control.CallSub(loadnextorder)
+F.Intrinsic.Control.EndIf 
+Gui.frmShipBarcode.frameStatus.Visible(False)
+Gui.frmShipBarcode.txtscanpart.SetFocus 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdClose_Click.End
+
+Program.Sub.PrintPCKLst.Start
+F.Intrinsic.Control.Try
+V.Local.iLogID.Declare 
+V.Local.sValues.Declare 
+V.Local.iRet.Declare 
+V.Local.sParams.Declare 
+V.Local.iBIRunID.Declare 
+V.local.bRet.Declare 
+V.Local.sSQL.Declare 
+V.Local.sFilname.Declare 
+V.Local.sFolder.Declare 
+V.Local.iFile.Declare
+V.Local.sText.Declare
+V.Local.sRet.Declare
+
+'TJS - Deprecated
+
+'Check temp file to verify the called program is from custom shipment screen while printing
+'F.Intrinsic.String.Build("{0}\GCG_5002",V.Caller.FilesDir,V.Local.sFolder)
+'F.Intrinsic.String.Build("{0}\{1}.tmp",V.Local.sFolder,V.Caller.Terminal,V.local.sFilname)
+
+'Function.Intrinsic.File.Exists(V.local.sFilname,V.local.bRet)
+'F.Intrinsic.Control.If(V.local.bRet,=,True)
+'	F.Intrinsic.File.GetHandle(V.Local.iFile)
+'	F.Intrinsic.File.OpenForRead(V.Local.sFilname,V.Local.iFile)
+'	F.Intrinsic.File.ReadFile(V.Local.iFile,V.Local.sText)
+
+'	F.Intrinsic.String.Build("select top 1 order_no from BI_PACKING_LIST where  RPTID = '000051' and terminal = '{0}'",V.Caller.Terminal,V.Local.sSQL)
+'	F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+
+'	F.Intrinsic.Control.If(V.Local.sText,=,V.Local.sRet)
+		'Cancel Printing
+		V.Passed.Cancel.Set(-1)
+
+		F.Global.BI.GetRunID(V.Local.iBIRunID)
+		F.Global.BI.StartLogging(V.Local.iBIRunID,51,-1,"",V.Local.iLogID)
+
+		V.Local.sParams.Set("Terminal*!*REPORTID*!*PCKNO")
+		F.Intrinsic.String.Build("{0}*!*{1}*!*{2}",V.Passed.BIP_Terminal,V.Passed.BIP_REPORTID,V.Passed.Passed.BIP_PCKNO,V.Local.sValues)
+		F.Global.BI.StopLogging(V.Local.iLogID)
+		'sent to printer
+		'8 to default printer
+		'16 to view
+		F.Global.BI.RunReportPreProcessor(V.Local.iBIRunID,V.Local.iLogID,V.Local.sParams,V.Local.sValues,"",8,True,"",-1,"",-1,"","",V.Local.iRet)
+
+		'Function.Intrinsic.File.DeleteFile(V.local.sFilname)
+'	F.Intrinsic.Control.endif
+'F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.PrintPCKLst.End
+
+Program.Sub.Show_Packaging.Start
+F.Intrinsic.Control.Try
+V.Local.iTotClmn.Declare
+V.Local.i.Declare
+V.Local.stitle.Declare
+
+	Gui.frmShipBarcode..Show 
+	Gui.frmShipBarcode.frameStatus.Visible(True)
+	Gui.frmShipBarcode.frameStatus.Position(105, 195)
+	Gui.frmShipBarcode.frameStatus.Size(14940,10065)
+	Gui.frmShipBarcode.GsGridStatus.Size(8145,8910)
+	Gui.frmShipBarcode.frameStatus.Caption("Input scan (Product Line 25)")
+	Gui.frmShipBarcode.txtPackParts.Visible(True)
+'	Gui.frmShipBarcode.cmdClose.Visible(False)
+	Gui.frmShipBarcode.cmdPackProcess.Visible(True)
+	Gui.frmShipBarcode.cmdPackclear.Visible(True)
+
+	F.Data.DataTable.Create("DTPack",True)
+	F.Data.DataTable.AddColumn("DTPack","Part","string")
+	F.Data.DataTable.AddColumn("DTPack","Serial","string")
+	F.Data.DataTable.AddColumn("DTPack","Qty","float")
+	
+	F.Data.DataTable.AddColumn("DTPack","Action","string","Delete")
+
+	F.Data.DataView.Create("DTPack","DVPack")
+
+	Gui.frmShipBarcode.GsGridStatus.AddGridViewFromDataView("GridView2","DTPack","DVPack")	
+	Gui.frmShipBarcode.GsGridStatus.GetColumnCount("GridView2",V.Local.iTotClmn)
+
+	F.Intrinsic.Math.Sub(V.Local.iTotClmn,1,V.Local.iTotClmn)
+	F.Intrinsic.Control.For(V.Local.i,0,V.Local.iTotClmn,1)
+		Gui.frmShipBarcode.GsGridStatus.GetColumnNamebyIndex("GridView2",V.Local.i,V.Local.stitle)
+		Gui.frmShipBarcode.GsGridStatus.SetColumnProperty("GridView2",V.Local.stitle,"HeaderFontBold","True")
+		Gui.frmShipBarcode.GsGridStatus.SetColumnProperty("GridView2",V.Local.stitle,"HeaderBackColor","#7FFF00")
+	F.Intrinsic.Control.Next(V.Local.i)
+
+	Gui.frmShipBarcode.GsGridStatus.SetGridViewProperty("GridView2","Editable",False)
+	Gui.frmShipBarcode.GsGridStatus.SetGridViewProperty("GridView2","ReadOnly",True)
+
+	Gui.frmShipBarcode.GsGridStatus.SetColumnProperty("GridView2", "Serial", "Visible", False)
+
+	Gui.frmShipBarcode.GsGridStatus.MainView("GridView2")
+
+	Gui.frmShipBarcode.txtPackParts.SetFocus
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.Show_Packaging.End
+
+Program.Sub.txtPackParts_KeyPress.Start
+Program.Sub.txtPackParts_KeyPress.End
+
+Program.Sub.txtPackSerial_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+V.Local.sPart.Declare
+V.Local.sSerialno.Declare
+V.Local.sFilter.Declare
+V.Local.sSelect.Declare
+
+V.Local.sPart.Set(V.Screen.frmShipBarcode!txtPackParts.Text)
+V.Local.sSerialno.Set(V.Screen.frmShipBarcode!txtPackSerial.Text)
+'F.Intrinsic.Control.If(V.Local.sSerialno.trim,<>,"")
+	F.Intrinsic.String.Build("Part = '{0}' and Serial_Number = '{1}'",V.Local.sPart,V.Local.sSerialno,V.Local.sFilter)
+	F.Data.DataTable.Select("DTPart",V.Local.sFilter,V.Local.sSelect)
+	F.Intrinsic.Control.If(V.Local.sSelect,=,"***NORETURN***")
+		F.Intrinsic.UI.Msgbox("Part not found")
+		Gui.frmShipBarcode.txtPackSerial.SetFocus 
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(validatepackaging,"PartNo",V.Local.sPart,"SerialNo",V.Local.sSerialno,"PMode","PS")
+		Gui.frmShipBarcode.txtPackSerial.text("")
+	F.Intrinsic.Control.endif
+'F.Intrinsic.Control.endif
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtPackSerial_KeyPressEnter.End
+
+Program.Sub.txtPackParts_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+V.Local.sPart.Declare(String)
+V.Local.sFilter.Declare(String)
+V.Local.sSelectLN.Declare(String)
+V.Local.sSelect.Declare(String)
+V.Local.fqtyord.Declare(float)
+V.Local.fqtyscan.Declare(float)
+V.Local.sSQL.Declare(String)
+
+V.Local.sPart.Set(V.Screen.frmShipBarcode!txtPackParts.Text)
+F.Intrinsic.Control.If(V.Local.sPart.trim,=,"PROCESS")
+	F.Intrinsic.Control.CallSub(cmdpackprocess_click)
+	Gui.frmShipBarcode.txtPackParts.Text("")
+F.Intrinsic.Control.elseIf(V.Local.sPart.trim,<>,"")
+	F.Intrinsic.String.Build("select Part from v_INVENTORY_MSTR where Part = '{0}' and Product_Line='25'",V.Local.sPart,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("DTPk1","conx",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.DataTable.DTPk1.rowcount,=,0)
+		F.Intrinsic.UI.Msgbox("Part not found")
+		Gui.frmShipBarcode.txtPackParts.SetFocus 
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(validatepackaging,"PartNo",V.Local.sPart,"PMode","P")
+	F.Intrinsic.Control.EndIf 
+	F.Data.DataTable.Close("DTPk1")
+F.Intrinsic.Control.endif
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtPackParts_KeyPressEnter.End
+
+Program.Sub.ValidatePackaging.Start
+F.Intrinsic.Control.Try
+V.Local.sSerial.Declare
+V.Local.sFilter.Declare
+V.Local.fqtyscan.Declare
+V.Local.sSelect.Declare
+
+F.Intrinsic.String.Build("Part = '{0}'",V.Args.PartNo,V.Local.sFilter)	
+
+F.Intrinsic.Control.If(V.Args.PMode,=,"PS")
+	V.Local.sSerial.Set(V.Args.SerialNo)
+	F.Intrinsic.String.Build("{0} and Serial = '{1}' ",V.Local.sFilter,V.Local.sSerial,V.Local.sFilter)
+F.Intrinsic.Control.EndIf 
+
+F.Data.DataTable.Select("DTPack",V.Local.sFilter,V.Local.sSelect)
+F.Intrinsic.Control.If(V.Local.sSelect,<>,"***NORETURN***")
+	F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+	V.Local.fqtyscan.Set(V.DataTable.DTPack(V.Local.sSelect(0)).Qty!Fieldval)
+	F.Intrinsic.Math.Add(V.Local.fqtyscan,1,V.Local.fqtyscan)
+	F.Data.DataTable.SetValue("DTPack",V.Local.sSelect(0),"Qty",V.Local.fqtyscan)
+F.Intrinsic.Control.Else
+	Function.Data.DataTable.AddRowByMap("DTPack", "Part*!*Serial*!*Qty",V.Args.PartNo,V.Local.sSerial,1)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(cmdpackclear_click)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.ValidatePackaging.End
+
+Program.Sub.cmdPackProcess_Click.Start
+F.Intrinsic.Control.Try
+V.Local.iCount.Declare 
+V.Local.sPart.Declare 
+V.Local.sReV.Declare 
+V.Local.sRecords1.Declare 
+V.Local.sLine1.Declare 
+V.Local.sSaveFile.Declare 
+V.Local.fQty.Declare 
+
+F.Intrinsic.Control.If(V.DataTable.DTPack.RowCount,=,0)
+	F.Intrinsic.Control.CallSub(cmdclose_click)
+'	F.Intrinsic.UI.Msgbox("Invaild Packaging Info")
+'	Gui.frmShipBarcode.txtPackParts.SetFocus 
+	F.Intrinsic.Control.Exitsub
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.BlockEvents 
+
+F.Intrinsic.UI.InvokeWaitDialog("Packaging in Progress")
+
+F.Intrinsic.Control.For(V.Local.iCount,0,V.DataTable.DTPack.RowCount--,1)
+	'We need to do a Issue, taking qty out of Inventory for the Part Location
+	' Part, Rev, Loc, Qty, Description, Lot,Bin, Hea, Serial, I/R, Drop
+	V.Local.sPart.Set("")
+	F.Intrinsic.String.RPad(V.DataTable.DTPack(V.Local.iCount).PART!FieldVal," ",20,V.Local.sPart)
+	V.Local.sReV.Set(V.Local.sPart.Right3)
+	V.Local.sPart.Set(V.Local.sPart.Left17)
+	F.Intrinsic.Math.Mult(V.DataTable.DTPack(V.Local.iCount).QTY!FieldValFloat,1,V.Local.fQty)
+'	F.Intrinsic.String.Build("{0}{9},{9}{1}{9},{9}{2}{9},{9}{3}{9},{9}{4}{9},{9}{5}{9},{9}{6}{9},{9}{7}{9},{9}{8}{9},{9}I{9},{9}N{9},{9}{9},{9}{9},{9}",V.Local.sPart.Trim,V.Local.sReV.Trim,"",V.Local.fQty,"","","PLANT","",V.DataTable.DTPack(V.Local.iCount).SERIAL!FieldValTrim,V.Ambient.DblQuote,V.Local.sLine1)
+	'no serila no
+	F.Intrinsic.String.Build("{0}{9},{9}{1}{9},{9}{2}{9},{9}{3}{9},{9}{4}{9},{9}{5}{9},{9}{6}{9},{9}{7}{9},{9}{8}{9},{9}I{9},{9}N{9},{9}{9},{9}{9},{9}",V.Local.sPart.Trim,V.Local.sReV.Trim,"",V.Local.fQty,"","","PLANT","","",V.Ambient.DblQuote,V.Local.sLine1)
+	F.Intrinsic.Control.If(V.Local.sRecords1,<>,"")
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sRecords1,V.Ambient.NewLine,V.Local.sLine1,V.Local.sRecords1)
+	F.Intrinsic.Control.Else
+		V.Local.sRecords1.Set(V.Local.sLine1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCount)			
+
+F.Intrinsic.String.Build("{0}\{1}StandIss.txt",V.Caller.FilesDir,V.Caller.CompanyCode,V.Local.sSaveFile)
+F.Intrinsic.File.String2File(V.Local.sSaveFile,V.Local.sRecords1)
+F.Intrinsic.String.Build("{0}StandIss.txt",V.Caller.CompanyCode,V.Local.sSaveFile)
+F.Intrinsic.Task.LaunchGSSSync("WIR104","-C",V.Local.sSaveFile)	
+
+F.Intrinsic.UI.CloseWaitDialog 
+'F.Intrinsic.UI.Msgbox("Shipment completed successfully")	
+
+'load next order for shipment
+F.Intrinsic.Control.CallSub(cmdclose_click)
+
+F.Intrinsic.Control.UnBlockEvents			
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdPackProcess_Click.End
+
+Program.Sub.CreateSOBrowserSort.Start
+F.Intrinsic.Control.Try
+V.Local.sSQL.Declare(String)
+V.Local.filter.Declare(String)
+V.Local.sClmnlist.Declare
+V.Local.sOldOrdNo.Declare
+
+V.Local.sOldOrdNo.Set(V.Screen.frmShipBarcode!txtorderno.Text)
+
+F.Intrinsic.Control.If(V.DataTable.DTOrder.Exists,=,True)
+	F.Data.DataTable.Close("DTOrder")
+	'F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.If(V.DataTable.DTOrdersort.Exists,=,True)
+	F.Data.DataTable.Close("DTOrdersort")
+F.Intrinsic.Control.EndIf 
+
+'Shp_HLD_Flag
+'V.Local.sSQL.Set("Select distinct OH.Order_No, OH.customer, OH.date_order, date_due, customer_po,Ship_via from v_order_header OH join v_order_lines OL on OH.order_no = OL.order_no where OL.QTY_BO>0 and OL.Record_Type='L' and OL.record_no <> '8000' and Flag_BOM <> 'Y' and Shp_HLD_Flag <> '04' order by OH.Order_No")
+F.Intrinsic.String.Build("Select distinct OH.Order_No, OH.customer, OH.date_order, date_due, customer_po,Ship_via from v_order_header OH join v_order_lines OL on OH.order_no = OL.order_no where OL.QTY_BO>0 and OL.Record_Type='L' and OL.record_no <> '8000' and Flag_BOM <> 'Y' and Shp_HLD_Flag <> '04' and OH.Order_No <> '{0}' order by OH.Order_No",V.Local.sOldOrdNo,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("DTOrder","Conx",V.Local.sSQL,True)
+
+F.Intrinsic.Control.If(Variable.DataTable.DTOrder.RowCount,=,0)
+	F.Intrinsic.UI.Msgbox("Open orders not found")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Data.DataTable.Create("DTOrdersort",True)
+F.Data.DataTable.AddColumn("DTOrdersort","Order_No","String")
+F.Data.DataTable.AddColumn("DTOrdersort","customer","String")
+F.Data.DataTable.AddColumn("DTOrdersort","date_order","String")
+F.Data.DataTable.AddColumn("DTOrdersort","date_due","String")
+F.Data.DataTable.AddColumn("DTOrdersort","customer_po","String")
+F.Data.DataTable.AddColumn("DTOrdersort","Ship_via","String")
+
+'add sort sequence criteria for custom browser
+F.Intrinsic.Control.If(V.DataTable.DTOrder.RowCount,>,1)
+
+	V.Local.filter.Set("ship_via = 'PICKUP'")
+	F.Intrinsic.Control.CallSub(addsortdata,"FILT",V.Local.filter)
+
+	'V.Local.filter.Set("ship_via like 'UPS%' and ship_via not like '%Ground%' and ship_via not like '%Canada%'")
+	V.Local.filter.Set("(ship_via like '%FX PRIOITY 1DAY%' or ship_via like '%FX 2DAY%' or ship_via like '%FX 3DAY%' or ship_via like '%FX INTL ECONOMY%')")
+	F.Intrinsic.Control.CallSub(addsortdata,"FILT",V.Local.filter)
+
+	'V.Local.filter.Set("ship_via like 'UPS%' and ship_via like '%Ground%' or ship_via  like '%Canada%'")
+	V.Local.filter.Set("ship_via like '%FX INTL GROUND%' or ship_via like '%FX HOME DELIVERY%'")
+	F.Intrinsic.Control.CallSub(addsortdata,"FILT",V.Local.filter)
+
+	'V.Local.filter.Set("ship_via not like 'UPS%' and ship_via not like 'PICKUP%'")
+	V.Local.filter.Set("ship_via like 'UPS%'")
+	F.Intrinsic.Control.CallSub(addsortdata,"FILT",V.Local.filter)
+	
+	V.Local.filter.Set("ship_via not like '%UPS%' and ship_via not like 'PICKUP%' and ship_via not like '%FX PRIOITY 1DAY%' and ship_via not like '%FX 2DAY%' and ship_via not like '%FX 3DAY%' and ship_via not like '%FX INTL ECONOMY%' and  ship_via not like '%FX INTL GROUND%' and ship_via not like '%FX HOME DELIVERY%'")
+	F.Intrinsic.Control.CallSub(addsortdata,"FILT",V.Local.filter)
+	
+	Function.Data.DataTable.SetValueFormat("DTOrdersort",-1,"date_order","date_order","MM/DD/YYYY")
+	Function.Data.DataTable.SetValueFormat("DTOrdersort",-1,"date_due","date_due","MM/DD/YYYY")
+	F.Data.DataView.Create("DTOrdersort","DVOrdersort")
+	F.Data.DataView.ToString("DTOrdersort","DVOrdersort","Order_No*!*customer*!*date_order*!*date_due*!*customer_po*!*Ship_via","*!*","@!@",V.Global.sOrderList)
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.CreateSOBrowserSort.End
+
+Program.Sub.AddSortData.Start
+F.Intrinsic.Control.Try
+V.Local.sClmnlist.Declare 
+
+F.Data.DataView.Create("DTOrder","DVOrder",22,V.Args.FILT,"")
+
+F.Intrinsic.Control.If(V.DataView.DTOrder!DVOrder.RowCount,>,0)
+	F.Intrinsic.Variable.AddRV("RCount",1)
+
+	V.Local.sClmnlist.Set("Order_No*!*customer*!*date_order*!*date_due*!*customer_po*!*Ship_via")
+	Function.Data.DataView.ToDataTableDistinct("DTOrder","DVOrder","DTExport",V.Local.sClmnlist,True)
+
+	F.Data.DataTable.Merge("DTExport","DTOrdersort",True,2)
+	F.Data.DataTable.Close("DTExport")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Variable.AddRV("RCount",0)
+Function.Intrinsic.Control.EndIf
+
+F.Data.DataView.Close("DTOrder","DVOrder")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.AddSortData.End
+
+Program.Sub.cmdPackclear_Click.Start
+F.Intrinsic.Control.Try
+
+Gui.frmShipBarcode.txtPackParts.Text("")
+Gui.frmShipBarcode.txtPackSerial.Text("")
+Gui.frmShipBarcode.txtPackParts.Enabled(True)
+Gui.frmShipBarcode.txtPackSerial.Enabled(false)
+Gui.frmShipBarcode.txtPackParts.SetFocus 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdPackclear_Click.End
+
+Program.Sub.CreateLockFile.Start
+'TJS - Deprecated in favor of Registry read/write
+
+'F.Intrinsic.Control.Try
+'V.Local.sFilname.Declare 
+'V.Local.sFolder.Declare 
+'V.Local.sRet.Declare 
+'V.local.bRet.Declare 
+
+'	'Create temp file to verify the caller while printing
+'	F.Intrinsic.String.Build("{0}\GCG_5002",V.Caller.FilesDir,V.Local.sFolder)
+'	F.Intrinsic.File.DirExists(V.Local.sFolder,V.local.bRet)
+'	F.Intrinsic.Control.If(V.local.bRet,=,False)
+'		F.Intrinsic.File.CreateDir(V.Local.sFolder)
+'	F.Intrinsic.Control.EndIf 
+
+'	F.Intrinsic.String.Build("{0}\{1}.tmp",V.Local.sFolder,V.Caller.Terminal,V.Global.sFilname)
+'	F.Intrinsic.File.String2File(V.Global.sFilname,V.Screen.frmShipBarcode!txtorderno.text)
+
+'F.Intrinsic.Control.ExitSub
+
+'F.Intrinsic.Control.Catch
+'	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+'F.Intrinsic.Control.EndTry
+Program.Sub.CreateLockFile.End
+
+Program.Sub.ReleaseLockFile.Start
+'TJS - Deprecated in favor of Registry read/write
+
+'F.Intrinsic.Control.Try
+'V.local.bRet.Declare 
+
+''Release Lock
+'Function.Intrinsic.File.Exists(V.Global.sFilname,V.local.bRet)
+'F.Intrinsic.Control.If(V.local.bRet,=,True)
+'	Function.Intrinsic.File.DeleteFile(V.Global.sFilname)
+'F.Intrinsic.Control.EndIf 
+
+'F.Intrinsic.Control.ExitSub
+
+'F.Intrinsic.Control.Catch
+'	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+'F.Intrinsic.Control.EndTry
+Program.Sub.ReleaseLockFile.End
+
+Program.Sub.LoadNextOrder.Start
+F.Intrinsic.Control.Try
+
+V.Global.lsel.Set(0)
+
+F.Intrinsic.Control.If(V.DataTable.DTOrdersort.RowCount,>,0)
+	F.Intrinsic.UI.InvokeWaitDialog("loading next Order")
+	Gui.frmShipBarcode.txtscanpart.Enabled(True)
+	Gui.frmShipBarcode.txtscanpart.Text("")
+	Gui.frmShipBarcode.txtCarrier.Text("")
+	Gui.frmShipBarcode.txtcustname.Text("")
+	Gui.frmShipBarcode.txtcustno.Text("")
+	Gui.frmShipBarcode.txtshipvia.Text("")
+
+	F.Intrinsic.Control.Label("LBL1")
+	'check file Open
+	F.Intrinsic.Control.CallSub(verifyfileopen,"ORDNO",V.DataTable.DTOrdersort(V.Global.lsel).Order_No!fieldval)
+	F.Intrinsic.Control.If(V.Args.RET,=,"Exist")
+		'if selected orderno is open check/load next orderno
+		V.Global.lsel.Set(V.Global.lsel.++)
+'		F.Intrinsic.Math.Add(V.Global.lsel,1,V.Global.lsel)
+		F.Intrinsic.Control.GoTo("LBL1")
+	F.Intrinsic.Control.EndIf 
+
+	Gui.frmShipBarcode.txtorderno.Text(V.DataTable.DTOrdersort(V.Global.lsel).Order_No!fieldval)
+	Gui.frmShipBarcode.txtcustno.Text(V.DataTable.DTOrdersort(V.Global.lsel).customer!fieldval)
+	Gui.frmShipBarcode.txtcustpo.Text(V.DataTable.DTOrdersort(V.Global.lsel).customer_po!fieldval)
+	'	'file already exist delete file - this not req string2file replaces the file
+	'	F.Intrinsic.Control.If(V.Global.sFilname,<>,"")
+	'		F.Intrinsic.Control.CallSub(releaselockfile)
+	'	F.Intrinsic.Control.endif
+	'F.Intrinsic.Control.CallSub(CreateLockFile)
+
+	F.Intrinsic.Control.CallSub(Customer_populate,"customer",V.DataTable.DTOrdersort(V.Global.lsel).customer!fieldval)
+	F.Intrinsic.Control.CallSub(Carrier_populate)
+	F.Intrinsic.Control.CallSub(LoadData)
+	Gui.frmShipBarcode.cmdProcess.Visible(True)
+	Gui.frmShipBarcode.cmdviewserial.Visible(True)
+	Gui.frmShipBarcode.txtscanpart.SetFocus
+
+	F.Intrinsic.UI.CloseWaitDialog 
+F.Intrinsic.Control.Else
+	F.Data.DataTable.CreateFromSQL("DTclear","conx","Select '' as ' '")
+	Gui.frmShipBarcode.GridShipping.AddGridviewFromDatatable("GV","DTclear")
+	Gui.frmShipBarcode.GridShipping.MainView("GV")
+	F.Data.DataTable.Close("DTclear")
+
+	F.Intrinsic.Control.CallSub(cmdclear_click)
+	Gui.frmShipBarcode.cmdProcess.Visible(false)
+	Gui.frmShipBarcode.cmdviewserial.Visible(false)
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadNextOrder.End
+
+Program.Sub.UpdInvQty.Start
+F.Intrinsic.Control.Try
+V.Local.sFilter.Declare(String)
+
+F.Intrinsic.String.Build("Part='{0}'",V.Args.FiltPart,V.Local.sFilter)
+F.Data.DataView.Create("DTPart","DVLines1",22,V.Local.sFilter,"")
+F.Data.DataView.SetValue("DTPart","DVLines1",-1,"TotINVQty",V.Args.Qty)
+F.Data.DataView.Close("DTPart","DVLines1")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.UpdInvQty.End
+
+Program.Sub.cmdConfirm_Click.Start
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.CallSub(cmdclear_click)
+Gui.frmShipBarcode.frm_confirmation.Visible(False)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdConfirm_Click.End
+
+Program.Sub.VerifyFileOpen.Start
+F.Intrinsic.Control.Try
+V.Local.iRet.Declare
+V.Local.sSQL.Declare
+'V.Local.sRet.Declare
+'V.Local.sFilter.Declare
+
+'TJS - Started going down the GS registry route, however the SO entry hook does not work.  Going the route of creating softlocks at this point.
+F.Global.General.ReadSoftLock("SO",V.Args.ORDNO.Trim,V.Local.iRet)
+
+F.Intrinsic.Control.If(V.Local.iRet,=,1)
+	F.Intrinsic.Variable.AddRV("RET","Exist")
+F.Intrinsic.Control.Else
+	F.Global.General.CreateSoftLock("SO",V.Args.ORDNO.Trim,V.Local.iRet)
+	'Core screens do not recognize "octsrs.net.exe" as a valid program at this time.  Updating X_LOCK_FILE so that core screens will react to the lock accordingly.
+	F.Intrinsic.String.Build("Update X_LOCK_FILE set PGM = 'ORD200' where COMPANY = '{0}' and LOCK_TYPE = 'SO' and REC_KEY = '{1}'",V.Caller.CompanyCode,V.Args.ORDNO.Trim,V.Local.sSQL)
+	F.ODBC.Connection!conx.Execute(V.Local.sSQL)
+	F.Intrinsic.Variable.AddRV("RET","NotExist")
+F.Intrinsic.Control.EndIf
+
+'F.Global.Registry.ReadValue(-5002,V.Caller.CompanyCode,"GCG_5002",5002,1000,6,"",V.Local.sRet)
+
+'F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+'	F.Data.DataTable.CreateFromString("dtExists",V.Local.sRet,"ORDERNO*!*USERID*!*TERMINAL*!*PROGRAM","String*!*String*!*String*!*String","*!*",V.Ambient.NewLine,False)
+'	F.Intrinsic.String.Build("ORDERNO = '{0}'",V.Args.ORDNO.Trim,V.Local.sFilter)
+'	F.Data.DataView.Create("dtExists","dvFilter",22,V.Local.sFilter,"")
+'	F.Intrinsic.Control.If(V.DataView.dtExists!dvFilter.RowCount,=,0)
+'		F.Data.Datatable.AddRow("dtExists","ORDERNO",V.Args.ORDNO,"USERID",V.Caller.User,"TERMINAL",V.Caller.Terminal,"PROGRAM","GCG_5002_GFE")
+'		F.Data.DataView.Create("dtExists","dvExists",22)
+'		F.Data.DataView.ToString("dtExists","dvExists","ORDERNO*!*USERID*!*TERMINAL*!*PROGRAM","*!*",V.Ambient.NewLine,V.Local.sRet)
+'		F.Data.DataView.Close("dtExists","dvExists")
+'		F.Global.Registry.AddValue(-5002,V.Caller.CompanyCode,"GCG_5002",5002,1000,False,"",False,-999,-999,1/1/1980,12:00:00 AM,"",V.Local.sRet)
+'		F.Intrinsic.Variable.AddRV("RET","NotExist")
+'	F.Intrinsic.Control.Else
+'		F.Intrinsic.Variable.AddRV("RET","Exist")
+'	F.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.Else
+'	F.Data.DataTable.Create("dtExists",False)
+'	F.Data.DataTable.AddColumn("dtExists","ORDERNO","String",V.Args.ORDNO.Trim)
+'	F.Data.DataTable.AddColumn("dtExists","USERID","String",V.Caller.User)
+'	F.Data.DataTable.AddColumn("dtExists","TERMINAL","String",V.Caller.Terminal)
+'	F.Data.DataTable.AddColumn("dtExists","PROGRAM","String","GCG_5002_GFE")
+'	
+'	F.Data.DataView.Create("dtExists","dvExists",22)
+'	F.Data.DataView.ToString("dtExists","dvExists","ORDERNO*!*USERID*!*TERMINAL*!*PROGRAM","*!*",V.Ambient.NewLine,V.Local.sRet)
+'	F.Data.DataView.Close("dtExists","dvExists")
+'	F.Global.Registry.AddValue(-5002,V.Caller.CompanyCode,"GCG_5002",5002,1000,False,"",False,-999,-999,1/1/1980,12:00:00 AM,"",V.Local.sRet)
+'	F.Intrinsic.Variable.AddRV("RET","NotExist")
+'F.Intrinsic.Control.EndIf
+
+'F.Data.DataView.Close("dtExists","dvFilter")
+'F.Data.DataTable.Close("dtExists")
+
+
+'TJS - Original method
+'get all files from folder
+'F.Intrinsic.String.Build("{0}\GCG_5002\",V.Caller.FilesDir,V.Local.sFolder)
+'F.Intrinsic.File.GetFileList(V.Local.sFolder,0,V.Local.sfilename)
+'F.Intrinsic.Control.If(V.Local.sfilename.trim,<>,"")
+'	F.Intrinsic.String.Split(V.Local.sfilename,":",V.Local.sfilename)
+'	F.Intrinsic.Control.For(V.Local.i,0,V.Local.sfilename.UBound,1)
+'		F.Intrinsic.String.Build("{0}{1}",V.Local.sFolder,V.Local.sfilename(V.Local.i),V.Local.sFilePath)
+'		F.Intrinsic.File.File2String(V.Local.sFilePath,V.Local.sRet)
+'		F.Intrinsic.Control.If(V.Local.sRet.trim,=,V.Args.ORDNO.trim)
+'			F.Intrinsic.Variable.AddRV("RET","Exist")
+'			F.Intrinsic.Control.ExitSub
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.Next(V.Local.i)
+'F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.VerifyFileOpen.End
+
+Program.Sub.GsGridStatus_RowCellClick.Start
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Args.column,=,"Action")
+	F.Data.DataTable.DeleteRow("DTPack",V.Args.RowHandle)
+	F.Data.DataTable.AcceptChanges("DTPack")
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.GsGridStatus_RowCellClick.End
+
+Program.Sub.frmShipBarcode_UnLoad.Start
+F.Intrinsic.Control.Try
+V.Local.iRet.Declare
+
+F.Intrinsic.Control.If(V.Screen.frmShipBarcode!frameStatus.Visible,=,True)
+	F.Intrinsic.Control.CallSub(cmdclose_click)
+F.Intrinsic.Control.Else
+	F.Global.General.ReadSoftLock("SO",V.Screen.frmShipBarcode!txtorderno.Text.Trim,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,1)
+		F.Global.General.DestroySoftLock("SO",V.Screen.frmShipBarcode!txtorderno.Text.Trim,V.Local.iRet)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Connection!conx.Close
+	'F.Intrinsic.Control.CallSub(releaselockfile)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndIf 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.frmShipBarcode_UnLoad.End
+
+Program.Sub.Form_UnLoad.Start
+F.Intrinsic.Control.Try
+
+Gui.frmpartsserial..Visible(false)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.Error.Start
+V.Local.sError.Declare
+V.Local.iRet.Declare
+V.Local.sSep.Declare
+
+F.Intrinsic.String.Build("-------------------------------------------------------------------------------------",,V.Local.sSep)
+F.Intrinsic.String.Build("({5}-{6}){0}{7}{0}Project: {4}{0}{7}{0}Sub: {1}{0}Error: {2}, {3}", V.Ambient.NewLine, V.Args.SubRoutine, V.Args.eNumber, V.Args.eDescription,V.Caller.ScriptFile,V.Ambient.Date, V.Ambient.Time,V.Local.sSep,V.Local.sError)
+F.Intrinsic.UI.Msgbox(V.Local.sError,"Error",V.Local.iRet)
+Program.Sub.Error.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_5002_GFE$}$MLA$}$5/8/2018 4:33:35 PM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$tsmith$}$20210527153523375$}$xqPbj9atw05FglvzeFsZ9cqXP+qvG6tX6401ESNBOON1wvDbvKYKFlffsxY9h7Ipc/CV/RZMJ8Q=
+Program.Sub.Comments.End
